@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote and Comment!</title>
+    
+</head>
+<body>
+  
+<div id="app">
+    <ul>
+        <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+
+        <li v-if="!todos.length">Belum ada Tugas</li>
+
+        <li v-for="(todo, index) in todos">
+            <span v-bind:class="{'completed' : todo.done}">
+                {{todo.text}}
+            </span>
+
+            <button @click="removeTodo(index)"> X </button>
+            <button @click="toggleC(todo)"> Done </button>
+        </li>
+
+    </ul>
+</div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="App.js"></script>
+
+<style>
+    .completed {
+        text-decoration: line-through;
+    }
+</style>
+
+
+</body>
+</html>
